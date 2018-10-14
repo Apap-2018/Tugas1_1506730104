@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Sukses</title>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	
+    	<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    	<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+ 	<body>
+ 		<nav th:replace="fragments/fragment" :: navbar></nav>
+		<div class="alert alert-success" role="alert">
+		  Sukses! Pegawai berhasil ditambahkan. <a href="#" class="alert-link">Lihat Pegawai</a>
+		</div>
+ 	</body>
+</html>

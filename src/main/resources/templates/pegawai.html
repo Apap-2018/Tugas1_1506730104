@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Detail Pegawai</title>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	
+    	<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    	<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+ 	<body>
+ 		<nav th:replace="fragments/fragment" :: navbar></nav>
+		<div class="container-fluid">
+			<h1>Lihat Data Pegawai</h1>
+			<div class="row">
+				<div class="col-md-4">NIP</div>
+		    	<div class="col-md-4">1506730104</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">Nama</div>
+		    	<div class="col-md-4">Erlangga</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">Tempat Lahir</div>
+		    	<div class="col-md-4">Jakarta</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">Tanggal Lahir</div>
+		    	<div class="col-md-4">Tahun Masuk</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">Tahun Masuk</div>
+		    	<div class="col-md-4">2018</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">Nama Instansi</div>
+		    	<div class="col-md-4">Dinas Kependudukan & Catatan Sipil - Aceh</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">Jabatan</div>
+		    	<div class="col-md-4">
+		    		<ul>
+					  	<li>Cras justo odio</li>
+					  	<li>Dapibus ac facilisis in</li>
+					  	<li>Morbi leo risus</li>
+					  	<li>Porta ac consectetur ac</li>
+					  	<li>Vestibulum at eros</li>
+					</ul>
+		    	</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">Gaji</div>
+		    	<div class="col-md-4">Rp. 1.000.000,00-</div>
+			</div>
+			<button class="btn btn-primary">Ubah</button>
+		</div>
+ 	</body>
+</html>

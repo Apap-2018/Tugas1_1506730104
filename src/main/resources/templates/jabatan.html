@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Detail Jabatan</title>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	
+    	<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    	<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+ 	<body>
+ 		<nav th:replace="fragments/fragment" :: navbar></nav>
+		<div class="container-fluid">
+			<h1>Detail Jabatan Kepala Divisi Saran dan Prasarana</h1>
+			<div class="row">
+				<div class="col-md-4">Nama</div>
+		    	<div class="col-md-4">Staf</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">Deskripsi</div>
+		    	<div class="col-md-4">Ngontrol2</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">Gaji Pokok</div>
+		    	<div class="col-md-4">Rp. 1.000.000,00-</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<button class="btn btn-primary">Ubah</button>
+				</div>
+				<div class="col-md-2">
+					<button class="btn btn-primary">Hapus</button>
+				</div>
+			</div>
+			
+		</div>
+ 	</body>
+</html>

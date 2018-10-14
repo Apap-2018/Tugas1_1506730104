@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Cari Pegawai</title>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	
+    	<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    	<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+ 	<body>
+ 		<nav th:replace="fragments/fragment" :: navbar></nav>
+		<div class="container-fluid">
+			<h1>Daftar Jabatan</h1>
+			
+			<div class="row">
+				<div class="col-md-4">
+					Show
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">10</a>
+							<a class="dropdown-item" href="#">20</a>
+							<a class="dropdown-item" href="#">30</a>
+						</div>
+					</div>
+					entries
+				</div>
+				<div class="col-md-4 offset-md-4">
+					Search
+					<input type="text" name="" class="form-control" />
+				</div>
+			</div>
+			<table class="table table-hover">
+			  <thead>
+			    <tr>
+			      <th scope="col">Nama</th>
+			      <th scope="col">Deskripsi</th>
+			      <th scope="col">Gaji Pokok</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>Mark</td>
+			      <td>Otto</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>Mark</td>
+			      <td>Otto</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>Mark</td>
+			      <td>Otto</td>
+			    </tr>
+			  </tbody>
+			</table>
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-end">
+			   		<li class="page-item disabled">
+			      		<a class="page-link" href="#" tabindex="-1">Previous</a>
+			    	</li>
+			    	<li class="page-item"><a class="page-link" href="#">1</a></li>
+			    	<li class="page-item"><a class="page-link" href="#">2</a></li>
+			    	<li class="page-item"><a class="page-link" href="#">3</a></li>
+			    	<li class="page-item">
+			      		<a class="page-link" href="#">Next</a>
+			    	</li>
+			  	</ul>
+			</nav>
+		</div>
+		
+ 	</body>
+</html>

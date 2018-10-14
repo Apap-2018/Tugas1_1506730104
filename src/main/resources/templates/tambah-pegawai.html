@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Tambah Pegawai</title>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	
+    	<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    	<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+ 	<body>
+ 		<nav th:replace="fragments/fragment" :: navbar></nav>
+		<div class="container-fluid">
+			<h1>Tambah Pegawai</h1>
+			<form th:action="" method="">
+				<div class="row">
+					<div class="col-md-4">NIP</div>
+			    	<div class="col-md-4">
+			    		<input type="text" name="nip" class="form-control" />
+			    	</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">Nama</div>
+			    	<div class="col-md-4">
+			    		<input type="text" name="name" class="form-control" />
+			    	</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">Tempat Lahir</div>
+			    	<div class="col-md-4">
+			    		<input type="text" name="tempat_lahir" class="form-control" />
+			    	</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">Tanggal Lahir</div>
+			    	<div class="col-md-4">
+			    		<input type="Date" name="tanggal_lahir" class="form-control" />
+			    	</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">Tahun Masuk</div>
+			    	<div class="col-md-4">
+			    		<input type="number" name="nip" class="form-control" />
+			    	</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">Provinsi</div>
+			    	<div class="col-md-4">
+			    		<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Pilih Provinsi
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">Action</a>
+								<a class="dropdown-item" href="#">Another action</a>
+								<a class="dropdown-item" href="#">Something else here</a>
+							</div>
+						</div>
+			    	</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">Nama Instansi</div>
+			    	<div class="col-md-4">
+			    		<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Pilih Instansi
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">Action</a>
+								<a class="dropdown-item" href="#">Another action</a>
+								<a class="dropdown-item" href="#">Something else here</a>
+							</div>
+						</div>
+			    	</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">Jabatan</div>
+			    	<div class="col-md-4">
+			    		<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Pilih Jabatan
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">Action</a>
+								<a class="dropdown-item" href="#">Another action</a>
+								<a class="dropdown-item" href="#">Something else here</a>
+							</div>
+						</div>
+						<a class="nav-link" href="#">Tambah Jabatan Lain</a>
+			    	</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Simpan</button>
+			</form>
+			
+		</div>
+ 	</body>
+</html>
