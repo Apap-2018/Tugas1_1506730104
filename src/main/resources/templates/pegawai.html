@@ -11,46 +11,42 @@
  	<body>
  		<nav th:replace="fragments/fragment" :: navbar></nav>
 		<div class="container-fluid">
-			<h1>Lihat Data Pegawai</h1>
+			<h1 th:text="'Lihat Data Pegawai - ' + ${pegawai.nip}"></h1>
 			<div class="row">
 				<div class="col-md-4">NIP</div>
-		    	<div class="col-md-4">1506730104</div>
+		    	<div th:text="${pegawai.nip}" class="col-md-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">Nama</div>
-		    	<div class="col-md-4">Erlangga</div>
+		    	<div th:text="${pegawai.nama}" class="col-md-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">Tempat Lahir</div>
-		    	<div class="col-md-4">Jakarta</div>
+		    	<div th:text="${pegawai.tempat_lahir}" class="col-md-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">Tanggal Lahir</div>
-		    	<div class="col-md-4">Tahun Masuk</div>
+		    	<div th:text="${pegawai.tanggal_lahir}" class="col-md-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">Tahun Masuk</div>
-		    	<div class="col-md-4">2018</div>
+		    	<div th:text="${pegawai.tahun_masuk}" class="col-md-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">Nama Instansi</div>
-		    	<div class="col-md-4">Dinas Kependudukan & Catatan Sipil - Aceh</div>
+		    	<div th:text="${instansi.nama}" class="col-md-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">Jabatan</div>
 		    	<div class="col-md-4">
 		    		<ul>
-					  	<li>Cras justo odio</li>
-					  	<li>Dapibus ac facilisis in</li>
-					  	<li>Morbi leo risus</li>
-					  	<li>Porta ac consectetur ac</li>
-					  	<li>Vestibulum at eros</li>
+		    			<li th:text="${jabatan.nama}"></li>
 					</ul>
 		    	</div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">Gaji</div>
-		    	<div class="col-md-4">Rp. 1.000.000,00-</div>
+		    	<div th:text="${jabatan.gaji_pokok}" class="col-md-4"></div>
 			</div>
 			<button class="btn btn-primary">Ubah</button>
 		</div>

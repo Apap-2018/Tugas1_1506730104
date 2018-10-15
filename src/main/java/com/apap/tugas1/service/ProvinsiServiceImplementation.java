@@ -13,5 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProvinsiServiceImplementation implements ProvinsiService {
 	@Autowired
 	private ProvinsiDB provinsiDb;
+
+	@Override
+	public List<ProvinsiModel> getAllProvinsi() {
+		return provinsiDb.findAll();
+	}
 	
 }

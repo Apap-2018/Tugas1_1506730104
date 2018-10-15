@@ -7,12 +7,17 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * 
+ * PegawaiModel
+ *
+ */
 @Entity
 @Table(name = "pegawai")
 public class PegawaiModel implements Serializable {
+	
 	@Id
 	@Size(max = 20)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -81,7 +86,7 @@ public class PegawaiModel implements Serializable {
 		return tempat_lahir;
 	}
 
-	public void setDate(Date tanggal_lahir) {
+	public void setTanggalLahir(Date tanggal_lahir) {
 		this.tanggal_lahir = tanggal_lahir;
 	}
 

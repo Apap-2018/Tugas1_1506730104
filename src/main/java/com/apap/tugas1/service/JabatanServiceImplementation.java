@@ -13,5 +13,15 @@ import org.springframework.transaction.annotation.Transactional;
 public class JabatanServiceImplementation implements JabatanService {
 	@Autowired
 	private JabatanDB jabatanDb;
+
+	@Override
+	public JabatanModel getJabatanDetailById(Long id) {
+		return jabatanDb.findByIdJabatan(id);
+	}
+
+	@Override
+	public List<JabatanModel> getAllJabatan() {
+		return jabatanDb.findAll();
+	}
 	
 }

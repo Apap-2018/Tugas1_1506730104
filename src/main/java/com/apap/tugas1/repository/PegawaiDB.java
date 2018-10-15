@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PegawaiDB extends JpaRepository<PegawaiModel, Long> {
-
+	PegawaiModel findByNip(String nip);
 }

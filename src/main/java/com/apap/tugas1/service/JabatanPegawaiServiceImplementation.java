@@ -13,5 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class JabatanPegawaiServiceImplementation implements JabatanPegawaiService {
 	@Autowired
 	private JabatanPegawaiDB jabatanPegawaiDb;
+
+	@Override
+	public JabatanPegawaiModel getJabatanPegawaiDetailByIdPegawai(Long id_pegawai) {
+		return jabatanPegawaiDb.findByIdPegawai(id_pegawai);
+	}
 	
 }

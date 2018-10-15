@@ -10,8 +10,7 @@
 	</head>
  	<body>
  		<nav th:replace="fragments/fragment" :: navbar></nav>
-		<div class="alert alert-success" role="alert">
-		  Sukses! Pegawai berhasil ditambahkan. <a href="#" class="alert-link">Lihat Pegawai</a>
-		</div>
+		<h1>Sukses!</h1>
+		<h2 th:text="'Pegawai dengan NIP ' + ${nip} + ' berhasil ' + '${success}'"></h2>
  	</body>
 </html>

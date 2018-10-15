@@ -12,35 +12,35 @@
  		<nav th:replace="fragments/fragment" :: navbar></nav>
 		<div class="container-fluid">
 			<h1>Ubah Pegawai</h1>
-			<form th:action="" method="">
+			<form th:action="@{/pegawai/ubah-submit}" th:object="${pegawai}" method="POST">
 				<div class="row">
 					<div class="col-md-4">NIP</div>
 			    	<div class="col-md-4">
-			    		<input type="text" name="nip" class="form-control" />
+			    		<input th:value="${pegawai.nip}" type="text" name="nip" class="form-control" />
 			    	</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">Nama</div>
 			    	<div class="col-md-4">
-			    		<input type="text" name="name" class="form-control" />
+			    		<input th:value="${pegawai.nama}" type="text" name="nama" class="form-control" />
 			    	</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">Tempat Lahir</div>
 			    	<div class="col-md-4">
-			    		<input type="text" name="tempat_lahir" class="form-control" />
+			    		<input th:value="${pegawai.tempat_lahir}" type="text" name="tempat_lahir" class="form-control" />
 			    	</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">Tanggal Lahir</div>
 			    	<div class="col-md-4">
-			    		<input type="Date" name="tanggal_lahir" class="form-control" />
+			    		<input th:value="${pegawai.tanggal_lahir}" type="Date" name="tanggal_lahir" class="form-control" />
 			    	</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">Tahun Masuk</div>
 			    	<div class="col-md-4">
-			    		<input type="number" name="nip" class="form-control" />
+			    		<input th:value="${pegawai.tahun_masuk}" type="number" name="tahun_masuk" class="form-control" />
 			    	</div>
 				</div>
 				<div class="row">
@@ -50,10 +50,8 @@
 							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Pilih Provinsi
 							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">Action</a>
-								<a class="dropdown-item" href="#">Another action</a>
-								<a class="dropdown-item" href="#">Something else here</a>
+							<div th:each="provinsi : ${provinsi}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a th:text="${provinsi.nama}" name="provinsi" th:field="${provinsi.id}" class="dropdown-item" href="#"></a>
 							</div>
 						</div>
 			    	</div>
@@ -65,10 +63,8 @@
 							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Pilih Instansi
 							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">Action</a>
-								<a class="dropdown-item" href="#">Another action</a>
-								<a class="dropdown-item" href="#">Something else here</a>
+							<div th:each="instansi : ${instansi}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a th:text="${instansi.nama}" name="instansi" th:field="${instansi.id}" class="dropdown-item" href="#">Action</a>
 							</div>
 						</div>
 			    	</div>
@@ -80,10 +76,8 @@
 							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Pilih Jabatan
 							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">Action</a>
-								<a class="dropdown-item" href="#">Another action</a>
-								<a class="dropdown-item" href="#">Something else here</a>
+							<div th:each="jabatan : ${jabatan}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a th:text="${jabatan.nama}" name="jabatan" th:field="${jabatan.id}" class="dropdown-item" href="#">Action</a>
 							</div>
 						</div>
 						<a class="nav-link" href="#">Tambah Jabatan Lain</a>
