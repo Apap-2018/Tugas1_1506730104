@@ -19,7 +19,8 @@ public class InstansiServiceImplementation implements InstansiService {
 
 	@Override
 	public InstansiModel getInstansiDetailById(Long id) {
-		return instansiDb.findByIdInstansi(id);
+		Optional<InstansiModel> temp = instansiDb.findById(id);
+		return temp.get();
 	}
 
 	@Override

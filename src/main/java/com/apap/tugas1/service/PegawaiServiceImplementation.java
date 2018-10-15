@@ -38,6 +38,35 @@ public class PegawaiServiceImplementation implements PegawaiService {
 		return updated;
 	}
 
+	@Override
+	public List<PegawaiModel> getAllPegawai() {
+		return pegawaiDb.findAll();
+	}
+
+	@Override
+	public PegawaiModel getPegawaiMudaByInstansi(Long id_instansi) {
+		List<PegawaiModel> temp = pegawaiDb.findAll();
+		int index = 0;
+		for(int i = 0; i < temp.size(); i++) {
+			if(temp.get(i).getTanggalLahir().after(temp.get(index).getTanggalLahir())) {
+				index = i;
+			}
+		}
+		return temp.get(index);
+	}
+
+	@Override
+	public PegawaiModel getPegawaiTuaByInstansi(Long id_instansi) {
+		List<PegawaiModel> temp = pegawaiDb.findAll();
+		int index = 0;
+		for(int i = 0; i < temp.size(); i++) {
+			if(temp.get(index).getTanggalLahir().after(temp.get(i).getTanggalLahir())) {
+				index = i;
+			}
+		}
+		return temp.get(index);
+	}
+
 	
 
 }

@@ -42,8 +42,12 @@ public class PegawaiController {
 	private ProvinsiService provinsiService;
 
 	@RequestMapping("/")
-	private String home() {
-		return "home";
+	private String home(Model model) {
+		List<JabatanModel> jabatan = jabatanService.getAllJabatan();
+		List<InstansiModel> instansi = instansiService.getAllInstansi();
+		model.addAttribute("jabatan", jabatan);
+		model.addAttribute("instansi", instansi);
+		return "index";
 	}
 	
 	@RequestMapping(value = "pegawai", method = RequestMethod.GET)
@@ -68,7 +72,7 @@ public class PegawaiController {
 		model.addAttribute("jabatan", jabatan);
 		return "tambah-pegawai";
 	}
-	
+	  
 	@RequestMapping(value="/pegawai/tambah-submit", method = RequestMethod.POST)
 	private String tambahPegawaiSubmit(@ModelAttribute PegawaiModel pegawai, Model model) {
 		pegawaiService.addPegawai(pegawai);
@@ -97,5 +101,40 @@ public class PegawaiController {
 		model.addAttribute("nip", updated.getNip());
 		model.addAttribute("success", "diubah");
 		return "success";
+	}
+	
+	@RequestMapping(value = "pegawai/cari", method = RequestMethod.GET)
+	public String cariPegawai(Model model){
+		List<ProvinsiModel> provinsi = provinsiService.getAllProvinsi();
+		List<InstansiModel> instansi = instansiService.getAllInstansi();
+		List<JabatanModel> jabatan = jabatanService.getAllJabatan();
+		List<PegawaiModel> pegawai = pegawaiService.getAllPegawai();
+		model.addAttribute("pegawai", pegawai);
+		model.addAttribute("jabatan", jabatan);
+		model.addAttribute("instansi", instansi);
+		model.addAttribute("jabatan", jabatan);
+		return "cari-pegawai";
+	}
+	
+	@RequestMapping(value = "pegawai/termuda-tertua", method = RequestMethod.GET)
+	public String viewPegawai(@RequestParam("id_instansi") Long id_instansi, Model model){
+		InstansiModel instansi = instansiService.getInstansiDetailById(id_instansi);
+		model.addAttribute("instansi", instansi);
+		
+		PegawaiModel pegawaiMuda = pegawaiService.getPegawaiMudaByInstansi(id_instansi);
+		JabatanPegawaiModel jabatanPegawaiMuda = jabatanPegawaiService.getJabatanPegawaiDetailByIdPegawai(pegawaiMuda.getId());
+		JabatanModel jabatanMuda = jabatanService.getJabatanDetailById(jabatanPegawaiMuda.getIdJabatan());
+		model.addAttribute("pegawaiMuda", pegawaiMuda);
+		model.addAttribute("jabatanPegawaiMuda", jabatanPegawaiMuda);
+		model.addAttribute("jabatanMuda", jabatanMuda);
+		
+		PegawaiModel pegawaiTua = pegawaiService.getPegawaiTuaByInstansi(id_instansi);
+		JabatanPegawaiModel jabatanPegawaiTua = jabatanPegawaiService.getJabatanPegawaiDetailByIdPegawai(pegawaiTua.getId());
+		JabatanModel jabatanTua = jabatanService.getJabatanDetailById(jabatanPegawaiTua.getIdJabatan());
+		model.addAttribute("pegawaiTua", pegawaiMuda);
+		model.addAttribute("jabatanPegawaiTua", jabatanPegawaiMuda);
+		model.addAttribute("jabatanTua", jabatanMuda);
+		
+		return "pegawai";
 	}
 }

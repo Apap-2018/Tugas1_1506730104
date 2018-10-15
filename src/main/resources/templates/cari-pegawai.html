@@ -21,10 +21,8 @@
 							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Pilih Provinsi
 							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">Action</a>
-								<a class="dropdown-item" href="#">Another action</a>
-								<a class="dropdown-item" href="#">Something else here</a>
+							<div th:each="provinsi : ${provinsi}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a th:text="${provinsi.nama}" name="provinsi" th:field="${provinsi.id}" class="dropdown-item" href="#"></a>
 							</div>
 						</div>
 			    	</div>
@@ -36,10 +34,8 @@
 							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Pilih Instansi
 							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">Action</a>
-								<a class="dropdown-item" href="#">Another action</a>
-								<a class="dropdown-item" href="#">Something else here</a>
+							<div th:each="instansi : ${instansi}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a th:text="${instansi.nama}" name="instansi" th:field="${instansi.id}" class="dropdown-item" href="#">Action</a>
 							</div>
 						</div>
 			    	</div>
@@ -51,13 +47,10 @@
 							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Pilih Jabatan
 							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">Action</a>
-								<a class="dropdown-item" href="#">Another action</a>
-								<a class="dropdown-item" href="#">Something else here</a>
+							<div th:each="jabatan : ${jabatan}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a th:text="${jabatan.nama}" name="jabatan" th:field="${jabatan.id}" class="dropdown-item" href="#">Action</a>
 							</div>
 						</div>
-						<a class="nav-link" href="#">Tambah Jabatan Lain</a>
 			    	</div>
 				</div>
 				<button type="submit" class="btn btn-primary">Tambah</button>
@@ -96,33 +89,17 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-			      <th scope="row">1</th>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">1</th>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">1</th>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
-			    </tr>
+			    <div th:each="pegawai : ${pegawai}">
+			    	<tr>
+				      	<td th:text="${pegawai.nip}">Mark</td>
+				      	<td th:text="${pegawai.nama}">Mark</td>
+				      	<td th:text="${pegawai.tempat_lahir}">Otto</td>
+				      	<td th:text="${pegawai.tanggal_lahir}">@mdo</td>
+				      	<td th:text="${pegawai.tahun_masuk}">Mark</td>
+				      	<td>Instansi</td>
+				      	<td>Jabatan</td>
+				    </tr>
+			    </div>
 			  </tbody>
 			</table>
 			<nav aria-label="Page navigation example">

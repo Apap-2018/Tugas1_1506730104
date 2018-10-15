@@ -12,23 +12,23 @@
  		<nav th:replace="fragments/fragment" :: navbar></nav>
 		<div class="container-fluid">
 			<h1>Ubah Jabatan</h1>
-			<form th:action="" method="">
+			<form th:action="@{/jabatan/ubah-submit}" th:object="${jabatan}" method="POST">
 				<div class="row">
 					<div class="col-md-4">Nama</div>
 			    	<div class="col-md-4">
-			    		<input type="text" name="name" class="form-control" />
+			    		<input th:value="${jabatan.nama}" type="text" name="name" class="form-control" />
 			    	</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">Deskripsi</div>
 			    	<div class="col-md-4">
-			    		<input type="text" name="deskripsi" class="form-control" />
+			    		<input th:value="${jabatan.deskripsi}" type="text" name="deskripsi" class="form-control" />
 			    	</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">Gaji Pokok</div>
 			    	<div class="col-md-4">
-			    		<input type="number" name="gaji_pokok" class="form-control" />
+			    		<input th:value="${jabatan.gaji_pokok}" type="number" name="gaji_pokok" class="form-control" />
 			    	</div>
 				</div>
 				<button type="submit" class="btn btn-primary">Simpan</button>

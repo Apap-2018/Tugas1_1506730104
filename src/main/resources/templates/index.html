@@ -45,11 +45,9 @@
 									<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								    	Pilih Jabatan
 								  	</button>
-								  	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								    	<a class="dropdown-item" href="#">Action</a>
-								    	<a class="dropdown-item" href="#">Another action</a>
-								    	<a class="dropdown-item" href="#">Something else here</a>
-								  	</div>
+								  	<div th:each="jabatan : ${jabatan}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										<a th:text="${jabatan.nama}" name="jabatan" th:field="${jabatan.id}" class="dropdown-item" href="#">Action</a>
+									</div>
 								</div>
 							</div>
 						</form>
@@ -71,11 +69,9 @@
 									<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								    	Pilih Instansi
 								  	</button>
-								  	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								    	<a class="dropdown-item" href="#">Action</a>
-								    	<a class="dropdown-item" href="#">Another action</a>
-								    	<a class="dropdown-item" href="#">Something else here</a>
-								  	</div>
+								  	<div th:each="instansi : ${instansi}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										<a th:text="${instansi.nama}" name="instansi" th:field="${instansi.id}" class="dropdown-item" href="#">Action</a>
+									</div>
 								</div>
 							</div>
 						</form>

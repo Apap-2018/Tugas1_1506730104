@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface InstansiDB extends JpaRepository<InstansiModel, Long> {
-	InstansiModel findByIdInstansi(Long id);
+	//InstansiModel findByIdInstansi(Long id);
 }

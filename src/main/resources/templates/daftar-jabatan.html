@@ -41,21 +41,13 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-			      <th scope="row">1</th>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">1</th>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">1</th>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			    </tr>
+			  	<div th:each="jabatan: ${jabatan}">
+			  		<tr>
+				    	<td th:text="${jabatan.nama}"></td>
+				      	<td th:text="${jabatan.deskripsi}"></td>
+				      	<td th:text="${jabatan.gaji_pokok}"></td>
+				    </tr>
+			  	</div>
 			  </tbody>
 			</table>
 			<nav aria-label="Page navigation example">

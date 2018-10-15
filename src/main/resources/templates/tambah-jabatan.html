@@ -12,7 +12,7 @@
  		<nav th:replace="fragments/fragment" :: navbar></nav>
 		<div class="container-fluid">
 			<h1>Tambah Jabatan</h1>
-			<form th:action="" method="">
+			<form th:action="@{jabatan/tambah-submit}" th:object="${jabatan}" method="POST">
 				<div class="row">
 					<div class="col-md-4">Nama</div>
 			    	<div class="col-md-4">

@@ -14,15 +14,15 @@
 			<h1>Detail Jabatan Kepala Divisi Saran dan Prasarana</h1>
 			<div class="row">
 				<div class="col-md-4">Nama</div>
-		    	<div class="col-md-4">Staf</div>
+		    	<div th:text="${jabatan.nama}" class="col-md-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">Deskripsi</div>
-		    	<div class="col-md-4">Ngontrol2</div>
+		    	<div th:text="${jabatan.deskripsi}" class="col-md-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">Gaji Pokok</div>
-		    	<div class="col-md-4">Rp. 1.000.000,00-</div>
+		    	<div th:text="${jabatan.gaji_pokok}" class="col-md-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-2">
