@@ -12,6 +12,7 @@ public interface PegawaiService {
 	void addPegawai(PegawaiModel pegawai);
 	PegawaiModel ubahPegawai(String nip,String nama, String tempat_lahir, Date tanggal_lahir, String tahun_masuk, Long id_instansi);
 	List<PegawaiModel> getAllPegawai();
+	String getPegawaiTahunMasukSama(String tahun_masuk);
 	PegawaiModel getPegawaiMudaByInstansi(Long id_instansi);
 	PegawaiModel getPegawaiTuaByInstansi(Long id_instansi);
 }

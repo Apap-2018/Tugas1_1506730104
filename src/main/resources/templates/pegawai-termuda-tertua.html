@@ -36,23 +36,17 @@
 					</div>
 					<div class="row">
 						<div class="col-md-4">Nama Instansi</div>
-				    	<div th:text="${instansi.nama}" class="col-md-4"></div>
+				    	<div th:text="${instansi.nama} + ' - ' + ${provinsi.nama}" class="col-md-4"></div>
 					</div>
 					<div class="row">
 						<div class="col-md-4">Jabatan</div>
 				    	<div class="col-md-4">
 				    		<ul>
-							  	<li>Cras justo odio</li>
-							  	<li>Dapibus ac facilisis in</li>
-							  	<li>Morbi leo risus</li>
-							  	<li>Porta ac consectetur ac</li>
-							  	<li>Vestibulum at eros</li>
+							  	<div th:each="jabatan: ${jabatanMuda}">
+				    				<li th:text="${jabatan.nama}"></li>
+				    			</div>
 							</ul>
 				    	</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">Gaji</div>
-				    	<div th:text="${jabatanMuda.gaji_pokok}" class="col-md-4">Rp. 1.000.000,00-</div>
 					</div>
 				</div>
 				<div class="col-md-6">
@@ -85,17 +79,11 @@
 						<div class="col-md-4">Jabatan</div>
 				    	<div class="col-md-4">
 				    		<ul>
-							  	<li>Cras justo odio</li>
-							  	<li>Dapibus ac facilisis in</li>
-							  	<li>Morbi leo risus</li>
-							  	<li>Porta ac consectetur ac</li>
-							  	<li>Vestibulum at eros</li>
+							  	<div th:each="jabatan: ${jabatanTua}">
+				    				<li th:text="${jabatan.nama}"></li>
+				    			</div>
 							</ul>
 				    	</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">Gaji</div>
-				    	<div th:text="${jabatanTua.gaji_pokok}" class="col-md-4"></div>
 					</div>
 				</div>
 			</div>

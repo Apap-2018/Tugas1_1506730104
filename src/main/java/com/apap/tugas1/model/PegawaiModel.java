@@ -2,6 +2,7 @@ package com.apap.tugas1.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,10 +14,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "pegawai")
 public class PegawaiModel implements Serializable {	
 	@Id
-	@NotNull
-	@Size(max = 20)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long id;
 	
 	@NotNull
 	@Size(max = 255)
@@ -42,19 +41,20 @@ public class PegawaiModel implements Serializable {
 	@Column(name = "tahun_masuk", nullable = false)
 	private String tahun_masuk;
 	
-	@NotNull
-	@Size(max = 20)
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "instansi", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "instansi_id", referencedColumnName = "id", nullable = false)
 	@OnDelete(action = OnDeleteAction.NO_ACTION)
 	@JsonIgnore
-	private Long id_instansi;
+	private InstansiModel instansi;
 
-	public void setId(Long id) {
+	@OneToMany(mappedBy="pegawai", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	private List<JabatanPegawaiModel> daftar_jabatan;
+
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -98,11 +98,20 @@ public class PegawaiModel implements Serializable {
 		return tahun_masuk;
 	}
 
-	public void setIdInstansi(Long id_instansi) {
-		this.id_instansi = id_instansi;
+	public void setInstansi(InstansiModel instansi) {
+		this.instansi = instansi;
 	}
 
-	public Long getIdInstansi() {
-		return id_instansi;
+	public InstansiModel getInstansi() {
+		return instansi;
 	}
+	
+	public void setDaftarJabatan(List<JabatanPegawaiModel> daftar_jabatan) {
+		this.daftar_jabatan = daftar_jabatan;
+	}
+
+	public List<JabatanPegawaiModel> getDaftarJabatan() {
+		return daftar_jabatan;
+	}
+	
 }

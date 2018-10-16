@@ -12,4 +12,5 @@ public interface JabatanService {
 	void addJabatan(JabatanModel jabatan);
 	JabatanModel ubahJabatanDetailById(Long id, String nama, String deskripsi, Double gaji_pokok);
 	JabatanModel deleteJabatanById(Long id);
+	Double getGajiTerbesar(List<JabatanModel> jabatan, Double presentase_tunjangan);
 }

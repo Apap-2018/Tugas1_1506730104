@@ -58,17 +58,15 @@
 						<div class="card-header">
 							Lihat Pegawai Termuda dan Tertua
 						</div>
-						<form th:action="@{/pegawai}" method="GET">
-							<div class="card-body">
-								<label for="id">Pilih Instansi</label>
-								<form th:action="@{/pegawai/termuda-tertua}" method="GET">
-									<select th:each="instansi : ${instansi}" name="id">
-										<option th:text="${instansi.nama}" th:value="${instansi.id}"></option>
-									</select>
-									<button type="submit" class="btn btn-primary">Lihat</button>
-								</form>
-							</div>
-						</form>
+						<div class="card-body">
+							<label for="id">Pilih Instansi</label>
+							<form th:action="@{/pegawai/termuda-tertua}" method="GET">
+								<select th:each="instansi : ${instansi}" name="id">
+									<option th:text="${instansi.nama}" th:value="${instansi.id}"></option>
+								</select>
+								<button type="submit" class="btn btn-primary">Lihat</button>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>

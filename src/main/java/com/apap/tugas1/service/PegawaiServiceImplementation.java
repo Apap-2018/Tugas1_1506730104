@@ -24,7 +24,6 @@ public class PegawaiServiceImplementation implements PegawaiService {
 	@Override
 	public void addPegawai(PegawaiModel pegawai) {
 		pegawaiDb.save(pegawai);
-		
 	}
 
 	@Override
@@ -33,7 +32,7 @@ public class PegawaiServiceImplementation implements PegawaiService {
 		pegawaiDb.findByNip(nip).setTempatLahir(tempat_lahir);
 		pegawaiDb.findByNip(nip).setTanggalLahir(tanggal_lahir);
 		pegawaiDb.findByNip(nip).setTahunMasuk(tahun_masuk);
-		pegawaiDb.findByNip(nip).setIdInstansi(id_instansi);
+		//pegawaiDb.findByNip(nip).setIdInstansi(id_instansi);
 		PegawaiModel updated = pegawaiDb.findByNip(nip);
 		return updated;
 	}
@@ -48,8 +47,10 @@ public class PegawaiServiceImplementation implements PegawaiService {
 		List<PegawaiModel> temp = pegawaiDb.findAll();
 		int index = 0;
 		for(int i = 0; i < temp.size(); i++) {
-			if(temp.get(i).getTanggalLahir().after(temp.get(index).getTanggalLahir())) {
-				index = i;
+			if(temp.get(i).getInstansi().getId() == id_instansi) {
+				if(temp.get(i).getTanggalLahir().after(temp.get(index).getTanggalLahir())) {
+					index = i;
+				}
 			}
 		}
 		return temp.get(index);
@@ -60,11 +61,31 @@ public class PegawaiServiceImplementation implements PegawaiService {
 		List<PegawaiModel> temp = pegawaiDb.findAll();
 		int index = 0;
 		for(int i = 0; i < temp.size(); i++) {
-			if(temp.get(index).getTanggalLahir().after(temp.get(i).getTanggalLahir())) {
-				index = i;
+			if(temp.get(i).getInstansi().getId() == id_instansi) {
+				if(temp.get(index).getTanggalLahir().after(temp.get(i).getTanggalLahir())) {
+					index = i;
+				}
 			}
 		}
 		return temp.get(index);
+	}
+
+	@Override
+	public String getPegawaiTahunMasukSama(String tahun_masuk) {
+		List<PegawaiModel> temp = pegawaiDb.findAll();
+		List<PegawaiModel> result = pegawaiDb.findAll();
+		result.clear();
+		for(int i = 0; i < temp.size(); i++) {
+			if(temp.get(i).getTahunMasuk().equals(tahun_masuk)) {
+				result.add(temp.get(i));
+			}
+		}
+		int res = result.size();
+		if(res > 9) {
+			return "" + res;
+		} else {
+			return "0" + res;
+		}
 	}
 
 	

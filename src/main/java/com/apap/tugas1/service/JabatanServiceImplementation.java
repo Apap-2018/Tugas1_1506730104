@@ -50,15 +50,23 @@ public class JabatanServiceImplementation implements JabatanService {
 	@Override
 	public List<JabatanModel> getJabatanListByJabatanPegawaiList(List<JabatanPegawaiModel> jabatanPegawaiList) {
 		List<JabatanModel> temp = jabatanDb.findAll();
+		temp.clear();
 		for(int i = 0; i < jabatanPegawaiList.size(); i++) {
-			for(int j = 0; j < temp.size(); j++) {
-				if(!temp.get(j).equals(jabatanPegawaiList.get(i).getIdJabatan())) {
-					temp.remove(j);
-					j--;
-				}
-			}
+			temp.add(jabatanDb.findById(jabatanPegawaiList.get(i).getId()).get());
 		}
 		return temp;
+	}
+
+	@Override
+	public Double getGajiTerbesar(List<JabatanModel> jabatan, Double presentase_tunjangan) {
+		Double gajiPegawai = 0.0;
+		for(int i = 0; i < jabatan.size(); i++) {
+			if(gajiPegawai < jabatan.get(i).getGajiPokok()) {
+				gajiPegawai = jabatan.get(i).getGajiPokok();
+			}
+		}
+		gajiPegawai += presentase_tunjangan * gajiPegawai;
+		return gajiPegawai;
 	}
 	
 	

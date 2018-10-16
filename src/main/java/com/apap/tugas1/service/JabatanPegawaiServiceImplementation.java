@@ -14,22 +14,21 @@ public class JabatanPegawaiServiceImplementation implements JabatanPegawaiServic
 	@Autowired
 	private JabatanPegawaiDB jabatanPegawaiDb;
 
+	/**
+	 * 
+	 */
+	
 	@Override
 	public List<JabatanPegawaiModel> getJabatanPegawaiListByIdPegawai(Long id_pegawai) {
 		List<JabatanPegawaiModel> temp = jabatanPegawaiDb.findAll();
-		for(int i = 0; i < temp.size(); i++) {
-			if(!temp.get(i).getIdPegawai().equals(id_pegawai)) {
-				temp.remove(i);
-				i--;
-			}
-		}
+		
 		return temp;
 	}
-
+	
 	@Override
 	public JabatanPegawaiModel getJabatanPegawaiDetailByIdPegawai(Long id_pegawai) {
 		// TODO Auto-generated method stub
-		return jabatanPegawaiDb.findByIdPegawai(id_pegawai);
+		return jabatanPegawaiDb.findById(id_pegawai).get();
 	}
 	
 }

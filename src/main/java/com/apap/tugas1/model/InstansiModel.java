@@ -1,6 +1,8 @@
 package com.apap.tugas1.model;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -12,10 +14,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "instansi")
 public class InstansiModel implements Serializable {
 	@Id
-	@NotNull
-	@Size(max = 20)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long id;
 	
 	@NotNull
 	@Size(max = 255)
@@ -27,19 +27,20 @@ public class InstansiModel implements Serializable {
 	@Column(name = "deskripsi", nullable = false)
 	private String deskripsi;
 	
-	@NotNull
-	@Size(max = 20)
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "provinsi", referencedColumnName = "id", nullable = false)
+	@JoinColumn(name = "provinsi_id", referencedColumnName = "id", nullable = false)
 	@OnDelete(action = OnDeleteAction.NO_ACTION)
 	@JsonIgnore
-	private Long id_provinsi;
+	private ProvinsiModel provinsi;
+	
+	@OneToMany(mappedBy="instansi", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	private List<PegawaiModel> daftar_pegawai;
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -59,11 +60,19 @@ public class InstansiModel implements Serializable {
 		return deskripsi;
 	}
 
-	public void setIdProvinsi(Long id_provinsi) {
-		this.id_provinsi = id_provinsi;
+	public void setProvinsi(ProvinsiModel provinsi) {
+		this.provinsi = provinsi;
 	}
 
-	public Long getIdProvinsi() {
-		return id_provinsi;
+	public ProvinsiModel getProvinsi() {
+		return provinsi;
+	}
+	
+	public void setDaftarPegawai(List<PegawaiModel> daftar_pegawai) {
+		this.daftar_pegawai = daftar_pegawai;
+	}
+
+	public List<PegawaiModel> getDaftarPegawai() {
+		return daftar_pegawai;
 	}
 }

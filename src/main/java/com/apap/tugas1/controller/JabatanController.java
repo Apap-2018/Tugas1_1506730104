@@ -26,21 +26,21 @@ public class JabatanController {
 	private JabatanService jabatanService;
 	
 	@RequestMapping(value = "/jabatan/view", method = RequestMethod.GET)
-	public String viewJabatan(@RequestParam("id") Long id, Model model){
+	public String viewJabatan(@RequestParam("id") long id, Model model){
 		JabatanModel jabatan = jabatanService.getJabatanDetailById(id);
 		model.addAttribute("jabatan", jabatan);
 		return "jabatan";
 	}
 	
 	@RequestMapping(value = "jabatan/ubah", method = RequestMethod.GET)
-	public String ubahJabatan(@RequestParam("id") Long id, Model model){
+	public String ubahJabatan(@RequestParam("id") long id, Model model){
 		JabatanModel jabatan = jabatanService.getJabatanDetailById(id);
 		model.addAttribute("jabatan", jabatan);
 		return "ubah-jabatan";
 	}
 	
 	@RequestMapping(value = "jabatan/ubah", method = RequestMethod.POST)
-	public String ubahPegawaiSubmit(@RequestParam("id") Long id, @RequestParam("nama") String nama, @RequestParam("deskripsi") String deskripsi, @RequestParam("gaji_pokok") Double gaji_pokok, Model model) {
+	public String ubahPegawaiSubmit(@RequestParam("id") long id, @RequestParam("nama") String nama, @RequestParam("deskripsi") String deskripsi, @RequestParam("gaji_pokok") Double gaji_pokok, Model model) {
 		JabatanModel terupdate = jabatanService.ubahJabatanDetailById(id, nama, deskripsi, gaji_pokok);
 		model.addAttribute("jabatan", terupdate);
 		model.addAttribute("action", "ubah");
@@ -48,7 +48,7 @@ public class JabatanController {
 	}
 	
 	@RequestMapping(value = "jabatan/hapus", method = RequestMethod.POST)
-	public String hapusJabatan(@RequestParam("id") Long id, Model model) {
+	public String hapusJabatan(@RequestParam("id") long id, Model model) {
 		JabatanModel terhapus = jabatanService.deleteJabatanById(id);
 		model.addAttribute("jabatan", terhapus);
 		model.addAttribute("action", "hapus");
@@ -72,6 +72,6 @@ public class JabatanController {
 		jabatanService.addJabatan(jabatan);
 		model.addAttribute("jabatan", jabatan);
 		model.addAttribute("action", "tambahkan");
-		return "index";
+		return "jabatan-act";
 	}
 }

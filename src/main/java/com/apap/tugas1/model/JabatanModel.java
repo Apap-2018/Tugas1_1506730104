@@ -1,6 +1,8 @@
 package com.apap.tugas1.model;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -12,10 +14,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "jabatan")
 public class JabatanModel implements Serializable {
 	@Id
-	@NotNull
-	@Size(max = 20)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long id;
 
 	@NotNull
 	@Size(max = 255)
@@ -30,12 +30,15 @@ public class JabatanModel implements Serializable {
 	@NotNull
 	@Column(name = "gaji_pokok", nullable = false)
 	private Double gaji_pokok;
+	
+	@OneToMany(mappedBy="jabatan", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	private List<JabatanPegawaiModel> daftar_pegawai;
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -62,4 +65,13 @@ public class JabatanModel implements Serializable {
 	public Double getGajiPokok() {
 		return gaji_pokok;
 	}
+	
+	public void setDaftarPegawai(List<JabatanPegawaiModel> daftar_pegawai) {
+		this.daftar_pegawai = daftar_pegawai;
+	}
+
+	public List<JabatanPegawaiModel> getDaftarPegawai() {
+		return daftar_pegawai;
+	}
+	
 }
