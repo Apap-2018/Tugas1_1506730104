@@ -20,7 +20,7 @@
 						<div class="card-header">
 							Lihat Data Pegawai Berdarkan NIP
 						</div>
-						<form th:action="" method="">
+						<form th:action="@{/pegawai}" method="GET">
 							<div class="card-body">
 								<label for="nip">Masukkan Nomor Induk Pegawai</label>
 								<input type="text" name="nip" class="form-control" />
@@ -38,19 +38,15 @@
 						<div class="card-header">
 							Lihat Detail Jabatan
 						</div>
-						<form th:action="" method="">
-							<div class="card-body">
-								<label for="nip">Pilih Jabatan</label>
-								<div class="dropdown">
-									<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								    	Pilih Jabatan
-								  	</button>
-								  	<div th:each="jabatan : ${jabatan}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-										<a th:text="${jabatan.nama}" name="jabatan" th:field="${jabatan.id}" class="dropdown-item" href="#">Action</a>
-									</div>
-								</div>
-							</div>
-						</form>
+						<div class="card-body">
+							<label for="id">Pilih Jabatan</label>
+							<form th:action="@{/jabatan/view}" method="GET">
+								<select th:each="jabatan : ${jabatan}" name="id">
+									<option th:text="${jabatan.nama}" th:value="${jabatan.id}"></option>
+								</select>
+								<button type="submit" class="btn btn-primary">Lihat</button>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -62,17 +58,15 @@
 						<div class="card-header">
 							Lihat Pegawai Termuda dan Tertua
 						</div>
-						<form th:action="" method="">
+						<form th:action="@{/pegawai}" method="GET">
 							<div class="card-body">
-								<label for="nip">Pilih Instansi</label>
-								<div class="dropdown">
-									<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								    	Pilih Instansi
-								  	</button>
-								  	<div th:each="instansi : ${instansi}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-										<a th:text="${instansi.nama}" name="instansi" th:field="${instansi.id}" class="dropdown-item" href="#">Action</a>
-									</div>
-								</div>
+								<label for="id">Pilih Instansi</label>
+								<form th:action="@{/pegawai/termuda-tertua}" method="GET">
+									<select th:each="instansi : ${instansi}" name="id">
+										<option th:text="${instansi.nama}" th:value="${instansi.id}"></option>
+									</select>
+									<button type="submit" class="btn btn-primary">Lihat</button>
+								</form>
 							</div>
 						</form>
 					</div>

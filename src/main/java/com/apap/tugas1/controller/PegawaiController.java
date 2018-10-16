@@ -50,17 +50,28 @@ public class PegawaiController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "pegawai", method = RequestMethod.GET)
+	@RequestMapping(value = "/pegawai", method = RequestMethod.GET)
 	public String viewPegawai(@RequestParam("nip") String nip, Model model){
 		PegawaiModel pegawai = pegawaiService.getPegawaiDetailByNip(nip);
 		InstansiModel instansi = instansiService.getInstansiDetailById(pegawai.getIdInstansi());
-		JabatanPegawaiModel jabatanPegawai = jabatanPegawaiService.getJabatanPegawaiDetailByIdPegawai(pegawai.getId());
-		JabatanModel jabatan = jabatanService.getJabatanDetailById(jabatanPegawai.getIdJabatan());
+		ProvinsiModel provinsi = provinsiService.getProvinsiDetailByIdProvinsi(instansi.getIdProvinsi());
+		List<JabatanPegawaiModel> jabatanPegawai = jabatanPegawaiService.getJabatanPegawaiListByIdPegawai(pegawai.getId());
+		List<JabatanModel> jabatan = jabatanService.getJabatanListByJabatanPegawaiList(jabatanPegawai);
+		Double gajiPegawai = 0.0;
+		for(int i = 0; i < jabatan.size(); i++) {
+			if(gajiPegawai < jabatan.get(i).getGajiPokok()) {
+				gajiPegawai = jabatan.get(i).getGajiPokok();
+			}
+		}
+		gajiPegawai += provinsi.getPresentaseTunjangan() * gajiPegawai;
 		model.addAttribute("pegawai", pegawai);
 		model.addAttribute("jabatan", jabatan);
 		model.addAttribute("instansi", instansi);
+		model.addAttribute("gajiPegawai", gajiPegawai);
 		return "pegawai";
 	}
+	/**
+	 * 
 	
 	@RequestMapping(value = "pegawai/tambah", method = RequestMethod.GET)
 	public String tambahPegawai(Model model){
@@ -73,7 +84,7 @@ public class PegawaiController {
 		return "tambah-pegawai";
 	}
 	  
-	@RequestMapping(value="/pegawai/tambah-submit", method = RequestMethod.POST)
+	@RequestMapping(value="/pegawai/tambah", method = RequestMethod.POST)
 	private String tambahPegawaiSubmit(@ModelAttribute PegawaiModel pegawai, Model model) {
 		pegawaiService.addPegawai(pegawai);
 		model.addAttribute("nip", pegawai.getNip());
@@ -137,4 +148,6 @@ public class PegawaiController {
 		
 		return "pegawai";
 	}
+	 */
+	
 }

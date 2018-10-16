@@ -9,46 +9,42 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-/**
- * 
- * PegawaiModel
- *
- */
 @Entity
 @Table(name = "pegawai")
-public class PegawaiModel implements Serializable {
-	
+public class PegawaiModel implements Serializable {	
 	@Id
+	@NotNull
 	@Size(max = 20)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
 	@NotNull
 	@Size(max = 255)
 	@Column(name = "nip", nullable = false, unique = true)
 	private String nip;
-
+	
 	@NotNull
 	@Size(max = 255)
 	@Column(name = "nama", nullable = false)
 	private String nama;
-
+	
 	@NotNull
 	@Size(max = 255)
 	@Column(name = "tempat_lahir", nullable = false)
 	private String tempat_lahir;
-
+	
 	@NotNull
 	@Column(name = "tanggal_lahir", nullable = false)
 	private Date tanggal_lahir;
-
+	
 	@NotNull
 	@Size(max = 255)
 	@Column(name = "tahun_masuk", nullable = false)
 	private String tahun_masuk;
-
-	@ManyToOne(fetch = FetchType.LAZY)
+	
+	@NotNull
 	@Size(max = 20)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "instansi", referencedColumnName = "id", nullable = false)
 	@OnDelete(action = OnDeleteAction.NO_ACTION)
 	@JsonIgnore

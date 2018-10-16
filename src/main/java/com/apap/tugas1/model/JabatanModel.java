@@ -6,11 +6,13 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "jabatan")
 public class JabatanModel implements Serializable {
 	@Id
+	@NotNull
 	@Size(max = 20)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

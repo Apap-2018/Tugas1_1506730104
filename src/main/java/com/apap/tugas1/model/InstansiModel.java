@@ -12,10 +12,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "instansi")
 public class InstansiModel implements Serializable {
 	@Id
+	@NotNull
 	@Size(max = 20)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
 	@NotNull
 	@Size(max = 255)
 	@Column(name = "nama", nullable = false)
@@ -25,10 +26,11 @@ public class InstansiModel implements Serializable {
 	@Size(max = 255)
 	@Column(name = "deskripsi", nullable = false)
 	private String deskripsi;
-
+	
+	@NotNull
+	@Size(max = 20)
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "provinsi", referencedColumnName = "id", nullable = false)
-	@Size(max = 20)
 	@OnDelete(action = OnDeleteAction.NO_ACTION)
 	@JsonIgnore
 	private Long id_provinsi;

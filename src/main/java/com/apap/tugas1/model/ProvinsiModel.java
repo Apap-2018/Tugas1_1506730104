@@ -1,21 +1,21 @@
 package com.apap.tugas1.model;
 
 import java.io.Serializable;
-import java.util.List;
-import java.sql.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "provinsi")
 public class ProvinsiModel implements Serializable {
 	@Id
+	@NotNull
 	@Size(max = 10)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 
 	@NotNull
 	@Size(max = 255)
@@ -26,11 +26,11 @@ public class ProvinsiModel implements Serializable {
 	@Column(name = "presentase_tunjangan", nullable = false)
 	private Double presentase_tunjangan;
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 

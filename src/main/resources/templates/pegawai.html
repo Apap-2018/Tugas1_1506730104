@@ -40,13 +40,15 @@
 				<div class="col-md-4">Jabatan</div>
 		    	<div class="col-md-4">
 		    		<ul>
-		    			<li th:text="${jabatan.nama}"></li>
+		    			<div th:each="jabatan: ${jabatan}">
+		    				<li th:text="${jabatan.nama}"></li>
+		    			</div>
 					</ul>
 		    	</div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">Gaji</div>
-		    	<div th:text="${jabatan.gaji_pokok}" class="col-md-4"></div>
+		    	<div th:text="${gajiPegawai}" class="col-md-4"></div>
 			</div>
 			<button class="btn btn-primary">Ubah</button>
 		</div>
