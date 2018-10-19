@@ -16,15 +16,17 @@
 			<h1 th:text="'Detail Jabatan ' + ${jabatan.nama}"></h1>
 			<br>
 			<div class="row">
-				<div class="col-md-2">Nama:</div>
+				<div class="col-md-2"><h6>Nama:</h6></div>
 		    	<div th:text="${jabatan.nama}" class="col-md-4"></div>
 			</div>
+			<p></p>
 			<div class="row">
-				<div class="col-md-2">Deskripsi:</div>
+				<div class="col-md-2"><h6>Deskripsi:</h6></div>
 		    	<div th:text="${jabatan.deskripsi}" class="col-md-4"></div>
 			</div>
+			<p></p>
 			<div class="row">
-				<div class="col-md-2">Gaji Pokok:</div>
+				<div class="col-md-2"><h6>Gaji Pokok:</h6></div>
 		    	<div th:text="${jabatan.gajiPokok}" class="col-md-4"></div>
 			</div>
 			<br>
@@ -32,12 +34,12 @@
 				<div class="col-md-2">
 					<form th:action="@{/jabatan/ubah}" method="GET">
 						<input type="hidden" name="id" th:value="${jabatan.id}"/>
-						<button class="btn btn-warning text-white">Ubah</button>
+						<button class="btn btn-lg btn-warning text-white">Ubah</button>
 					</form>
 					<br>
 					<form th:action="@{/jabatan/hapus}" method="POST">
 						<input type="hidden" name="id" th:value="${jabatan.id}"/>
-						<button class="btn btn-danger">Hapus</button>
+						<button class="btn btn-lg btn-danger">Hapus</button>
 					</form>
 				</div>
 			</div>

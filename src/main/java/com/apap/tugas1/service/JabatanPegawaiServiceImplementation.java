@@ -29,13 +29,11 @@ public class JabatanPegawaiServiceImplementation implements JabatanPegawaiServic
 	
 	@Override
 	public JabatanPegawaiModel getJabatanPegawaiDetailByIdPegawai(Long id_pegawai) {
-		// TODO Auto-generated method stub
 		return jabatanPegawaiDb.findById(id_pegawai).get();
 	}
 
 	@Override
 	public void addJabatanPegawai(JabatanPegawaiModel jabatanPegawai) {
-		// TODO Auto-generated method stub
 		jabatanPegawaiDb.save(jabatanPegawai);
 	}
 

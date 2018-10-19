@@ -7,6 +7,7 @@
     	
     	<object th:include="fragments/fragment :: css" th:remove="tag"></object>
     	<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
  	<body>
  		<nav th:replace="fragments/fragment" :: navbar></nav>
@@ -59,7 +60,7 @@
 					<div class="col-md-4">Instansi:</div>
 			    	<div class="col-md-4">
 			    		<div class="dropdown">
-							<select class="form-control" name="id_instansi">
+							<select class="form-control" name="instansi">
 								<option>Pilih Instansi</option>
 								<option th:each="instansi : ${instansi}" th:text="${instansi.nama}" th:value="${instansi.id}"></option>
 							</select>
@@ -70,19 +71,17 @@
 				<div class="row">
 					<div class="col-md-4">Jabatan:</div>
 			    	<div class="col-md-4">
-			    		<div class="dropdown">
 							<select class="form-control" name="id_jabatan">
 								<option>Pilih Jabatan</option>
 								<option th:each="jabatan : ${jabatan}" th:text="${jabatan.nama}" th:value="${jabatan.id}"></option>
 							</select>
-						</div>
-						<a class="nav-link" href="#">Tambah Jabatan Lain+</a>
+							<p></p>
+							<input type="button" value="Tambah Jabatan Lain+" class="btn btn-primary" id="add" />
 			    	</div>
 				</div>
 				<p></p>
 				<button type="submit" class="btn btn-success">Simpan</button>
 			</form>
-			
 		</div>
  	</body>
 </html>

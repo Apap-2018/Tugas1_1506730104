@@ -11,35 +11,43 @@
  	<body>
  		<nav th:replace="fragments/fragment" :: navbar></nav>
 		<div class="container-fluid">
+			<br>
 			<div class="row">
 				<div class="col-md-6">
 					<h1>Data Pegawai Termuda</h1>
+					<br>
 					<div class="row">
-						<div class="col-md-4">NIP</div>
+						<div class="col-md-4"><h6>NIP:</h6></div>
 				    	<div th:text="${pegawaiMuda.nip}" class="col-md-4"></div>
 					</div>
+					<p></p>
 					<div class="row">
-						<div class="col-md-4">Nama</div>
+						<div class="col-md-4"><h6>Nama:</h6></div>
 				    	<div th:text="${pegawaiMuda.nama}" class="col-md-4"></div>
 					</div>
+					<p></p>
 					<div class="row">
-						<div class="col-md-4">Tempat Lahir</div>
+						<div class="col-md-4"><h6>Tempat Lahir:</h6></div>
 				    	<div th:text="${pegawaiMuda.tempatLahir}" class="col-md-4"></div>
 					</div>
+					<p></p>
 					<div class="row">
-						<div class="col-md-4">Tanggal Lahir</div>
+						<div class="col-md-4"><h6>Tanggal Lahir:</h6></div>
 				    	<div th:text="${pegawaiMuda.tanggalLahir}" class="col-md-4"></div>
 					</div>
+					<p></p>
 					<div class="row">
-						<div class="col-md-4">Tahun Masuk</div>
+						<div class="col-md-4"><h6>Tahun Masuk:</h6></div>
 				    	<div th:text="${pegawaiMuda.tahunMasuk}" class="col-md-4"></div>
 					</div>
+					<p></p>
 					<div class="row">
-						<div class="col-md-4">Nama Instansi</div>
+						<div class="col-md-4"><h6>Nama Instansi:</h6></div>
 				    	<div th:text="${instansi.nama} + ' - ' + ${provinsi.nama}" class="col-md-4"></div>
 					</div>
+					<p></p>
 					<div class="row">
-						<div class="col-md-4">Jabatan</div>
+						<div class="col-md-4"><h6>Jabatan:</h6></div>
 				    	<div class="col-md-4">
 				    		<ul>
 							  	<div th:each="jabatan: ${jabatanMuda}">
@@ -51,32 +59,39 @@
 				</div>
 				<div class="col-md-6">
 					<h1>Data Pegawai Tertua</h1>
+					<br>
 					<div class="row">
-						<div class="col-md-4">NIP</div>
+						<div class="col-md-4"><h6>NIP:</h6></div>
 				    	<div th:text="${pegawaiTua.nip}" class="col-md-4"></div>
 					</div>
+					<p></p>
 					<div class="row">
-						<div class="col-md-4">Nama</div>
+						<div class="col-md-4"><h6>Nama:</h6></div>
 				    	<div th:text="${pegawaiTua.nama}" class="col-md-4"></div>
 					</div>
+					<p></p>
 					<div class="row">
-						<div class="col-md-4">Tempat Lahir</div>
+						<div class="col-md-4"><h6>Tempat Lahir:</h6></div>
 				    	<div th:text="${pegawaiTua.tempatLahir}" class="col-md-4"></div>
 					</div>
+					<p></p>
 					<div class="row">
-						<div class="col-md-4">Tanggal Lahir</div>
+						<div class="col-md-4"><h6>Tanggal Lahir:</h6></div>
 				    	<div th:text="${pegawaiTua.tanggalLahir}" class="col-md-4"></div>
 					</div>
+					<p></p>
 					<div class="row">
-						<div class="col-md-4">Tahun Masuk</div>
+						<div class="col-md-4"><h6>Tahun Masuk:</h6></div>
 				    	<div th:text="${pegawaiTua.tahunMasuk}" class="col-md-4"></div>
 					</div>
+					<p></p>
 					<div class="row">
-						<div class="col-md-4">Nama Instansi</div>
+						<div class="col-md-4"><h6>Nama Instansi:</h6></div>
 				    	<div th:text="${instansi.nama} + ' - ' + ${provinsi.nama}" class="col-md-4"></div>
 					</div>
+					<p></p>
 					<div class="row">
-						<div class="col-md-4">Jabatan</div>
+						<div class="col-md-4"><h6>Jabatan:</h6></div>
 				    	<div class="col-md-4">
 				    		<ul>
 							  	<div th:each="jabatan: ${jabatanTua}">

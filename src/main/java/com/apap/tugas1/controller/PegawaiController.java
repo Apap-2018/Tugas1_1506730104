@@ -62,7 +62,7 @@ public class PegawaiController {
 		model.addAttribute("jabatan", jabatan);
 		model.addAttribute("instansi", instansi);
 		model.addAttribute("provinsi", provinsi);
-		model.addAttribute("gajiPegawai", gajiPegawai);
+		model.addAttribute("gajiPegawai", gajiPegawai.intValue());
 		
 		return "pegawai";
 	}
@@ -98,10 +98,9 @@ public class PegawaiController {
 	}
 	  
 	@RequestMapping(value="/pegawai/tambah", method = RequestMethod.POST)
-	private String tambahPegawaiSubmit(@ModelAttribute PegawaiModel pegawai, @RequestParam("id_instansi") Long id_instansi, @RequestParam("id_jabatan") Long id_jabatan, Model model) {
+	private String tambahPegawaiSubmit(@ModelAttribute PegawaiModel pegawai, @RequestParam("id_jabatan") Long id_jabatan, Model model) {
 		String nipTahunMasuk = pegawaiService.getPegawaiTahunMasukSama(pegawai.getTahunMasuk());
-		InstansiModel instansi = instansiService.getInstansiDetailById(id_instansi);
-		pegawai.setInstansi(instansi);
+		InstansiModel instansi = instansiService.getInstansiDetailById(pegawai.getInstansi().getId());
 		String nipTanggalLahir = ""+ pegawai.getTanggalLahir().getDay() + pegawai.getTanggalLahir().getMonth() + pegawai.getTanggalLahir().getYear(); 
 		pegawai.setNip("" + pegawai.getInstansi().getId() + nipTanggalLahir + pegawai.getTahunMasuk() + nipTahunMasuk); 
 		pegawaiService.addPegawai(pegawai);
@@ -142,9 +141,7 @@ public class PegawaiController {
 		model.addAttribute("success", "diubah");
 		return "success";
 	}
-	/**
-	 *
-	 *
+	
 	@RequestMapping(value = "pegawai/cari", method = RequestMethod.GET)
 	public String cariPegawai(Model model){
 		List<ProvinsiModel> provinsi = provinsiService.getAllProvinsi();
@@ -158,6 +155,5 @@ public class PegawaiController {
 		model.addAttribute("instansi", instansi);
 		return "cari-pegawai";
 	}
-	 */
 	
 }

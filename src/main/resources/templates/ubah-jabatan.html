@@ -13,6 +13,7 @@
  		
 		<div class="container-fluid">
 			<div th:text="${jabatan?.nama}" class="alert alert-success" role="alert"></div>
+			<br>
 			<h1>Ubah Jabatan</h1>
 			<br>
 			<form th:action="@{/jabatan/ubah}" th:object="${jabatan}" method="POST">
@@ -23,18 +24,21 @@
 			    		<input th:value="${jabatan.nama}" type="text" name="nama" class="form-control" />
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
 					<div class="col-md-4">Deskripsi</div>
 			    	<div class="col-md-4">
 			    		<input th:value="${jabatan.deskripsi}" type="text" name="deskripsi" class="form-control" />
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
 					<div class="col-md-4">Gaji Pokok</div>
 			    	<div class="col-md-4">
 			    		<input th:value="${jabatan.gajiPokok}" type="number" name="gaji_pokok" class="form-control" />
 			    	</div>
 				</div>
+				<br>
 				<button type="submit" class="btn btn-primary">Simpan</button>
 			</form>
 		</div>

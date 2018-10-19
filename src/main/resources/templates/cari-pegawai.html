@@ -11,59 +11,70 @@
  	<body>
  		<nav th:replace="fragments/fragment" :: navbar></nav>
 		<div class="container-fluid">
+			<br>
 			<h1>Cari Pegawai</h1>
-			
-			<form th:action="" method="">
+			<br>
+			<form>
 				<div class="row">
 					<div class="col-md-4">Provinsi</div>
 			    	<div class="col-md-4">
-			    		<select name="id_provinsi">
+			    		<select class="form-control" name="id_provinsi">
 							<option>Pilih Provinsi</option>
-							<option th:each="provinsi : ${provinsi}" th:text="${provinsi.nama}" th:value="${provinsi.id}"></option>
+							<option  th:each="provinsi : ${provinsi}" th:text="${provinsi.nama}" th:value="${provinsi.id}"></option>
 						</select>
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
 					<div class="col-md-4">Nama Instansi</div>
 			    	<div class="col-md-4">
-			    		<select name="id_instansi">
+			    		<select class="form-control" name="id_instansi">
 							<option>Pilih Instansi</option>
 							<option th:each="instansi : ${instansi}" th:text="${instansi.nama}" th:value="${instansi.id}"></option>
 						</select>
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
 					<div class="col-md-4">Jabatan</div>
 			    	<div class="col-md-4">
-			    		<select name="id">
+			    		<select class="form-control" name="id">
 							<option>Pilih Jabatan</option>
 							<option th:each="jabatan : ${jabatan}" th:text="${jabatan.nama}" th:value="${jabatan.id}"></option>
 						</select>
 			    	</div>
 				</div>
+				<p></p>
 				<button type="submit" class="btn btn-primary">Tambah</button>
 			</form>
 			
 			<hr>
 			<div class="row">
 				<div class="col-md-4">
-					Show
-					<div class="dropdown">
-						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item" href="#">10</a>
-							<a class="dropdown-item" href="#">20</a>
-							<a class="dropdown-item" href="#">30</a>
+					<div class="row">
+						<div class="col-md-2">Show</div>
+						<div class="col-md-2">
+							<select class="form-control">
+								<option>10</option>
+								<option>20</option>
+								<option>30</option>
+							</select>
 						</div>
+						<div class="col-md-2">entries</div>					
 					</div>
-					entries
 				</div>
 				<div class="col-md-4 offset-md-4">
-					Search
-					<input type="text" name="" class="form-control" />
+					<div class="row">
+						<div class="col-md-2">
+							Search:	
+						</div>
+						<div class="col-md-10">
+							<input type="text" name="" class="form-control" />
+						</div>
+					</div>
 				</div>
 			</div>
+			<br>
 			<table class="table table-hover">
 			  <thead>
 			    <tr>

@@ -10,7 +10,11 @@
 	</head>
  	<body>
  		<nav th:replace="fragments/fragment" :: navbar></nav>
-		<h1>Sukses!</h1>
-		<h2 th:text="'Pegawai dengan NIP ' + ${nip} + ' berhasil ' + ${success}"></h2>
+		<div class="container-fluid">
+			<br>
+			<h1>Sukses!</h1>
+			<br>
+			<h2 th:text="'Pegawai dengan NIP ' + ${nip} + ' berhasil ' + ${success}"></h2>
+		</div>
  	</body>
 </html>

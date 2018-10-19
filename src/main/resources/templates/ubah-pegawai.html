@@ -19,27 +19,31 @@
 				<div class="row">
 					<div class="col-md-4">Nama:</div>
 			    	<div class="col-md-4">
-			    		<input th:text="${pegawai.nama}" type="text" name="nama" class="form-control" />
+			    		<input th:value="${pegawai.nama}" type="text" name="nama" class="form-control" />
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
 					<div class="col-md-4">Tempat Lahir:</div>
 			    	<div class="col-md-4">
-			    		<input th:text="${pegawai.tempatLahir}" type="text" name="tempatLahir" class="form-control" />
+			    		<input th:value="${pegawai.tempatLahir}" type="text" name="tempatLahir" class="form-control" />
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
 					<div class="col-md-4">Tanggal Lahir:</div>
 			    	<div class="col-md-4">
-			    		<input th:text="${pegawai.tanggalLahir}" type="Date" name="tanggalLahir" class="form-control" />
+			    		<input th:value="${pegawai.tanggalLahir}" type="Date" name="tanggalLahir" class="form-control" />
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
 					<div class="col-md-4">Tahun Masuk:</div>
 			    	<div class="col-md-4">
-			    		<input th:text="${pegawai.tahunMasuk}" type="text" name="tahunMasuk" class="form-control" />
+			    		<input th:value="${pegawai.tahunMasuk}" type="text" name="tahunMasuk" class="form-control" />
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
 					<div class="col-md-4">Provinsi:</div>
 			    	<div class="col-md-4">
@@ -51,6 +55,7 @@
 						</div>
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
 					<div class="col-md-4">Nama Instansi:</div>
 			    	<div class="col-md-4">
@@ -62,6 +67,7 @@
 						</div>
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
 					<div class="col-md-4">Jabatan:</div>
 			    	<div class="col-md-4">
@@ -74,6 +80,7 @@
 						<a class="nav-link" href="#">Tambah Jabatan Lain</a>
 			    	</div>
 				</div>
+				<p></p>
 				<button type="submit" class="btn btn-primary">Simpan</button>
 			</form>
 			
