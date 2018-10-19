@@ -22,15 +22,15 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4">Tempat Lahir</div>
-		    	<div th:text="${pegawai.tempat_lahir}" class="col-md-4"></div>
+		    	<div th:text="${pegawai.tempatLahir}" class="col-md-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">Tanggal Lahir</div>
-		    	<div th:text="${pegawai.tanggal_lahir}" class="col-md-4"></div>
+		    	<div th:text="${pegawai.tanggalLahir}" class="col-md-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">Tahun Masuk</div>
-		    	<div th:text="${pegawai.tahun_masuk}" class="col-md-4"></div>
+		    	<div th:text="${pegawai.tahunMasuk}" class="col-md-4"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">Nama Instansi</div>
@@ -50,7 +50,14 @@
 				<div class="col-md-4">Gaji</div>
 		    	<div th:text="${gajiPegawai}" class="col-md-4"></div>
 			</div>
-			<button class="btn btn-primary">Ubah</button>
+			<div class="row">
+				<div class="col-md-2">
+					<form th:action="@{/pegawai/ubah}" method="GET">
+						<input type="hidden" name="nip" th:value="${pegawai.nip}"/>
+						<button class="btn btn-warning text-white">Ubah</button>
+					</form>
+				</div>
+			</div>
 		</div>
  	</body>
 </html>

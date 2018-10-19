@@ -27,12 +27,12 @@ public class PegawaiServiceImplementation implements PegawaiService {
 	}
 
 	@Override
-	public PegawaiModel ubahPegawai(String nip, String nama, String tempat_lahir, Date tanggal_lahir, String tahun_masuk, Long id_instansi) {
+	public PegawaiModel ubahPegawai(String nip, String nama, String tempat_lahir, Date tanggal_lahir, String tahun_masuk, InstansiModel instansi) {
 		pegawaiDb.findByNip(nip).setNama(nama);
 		pegawaiDb.findByNip(nip).setTempatLahir(tempat_lahir);
 		pegawaiDb.findByNip(nip).setTanggalLahir(tanggal_lahir);
 		pegawaiDb.findByNip(nip).setTahunMasuk(tahun_masuk);
-		//pegawaiDb.findByNip(nip).setIdInstansi(id_instansi);
+		pegawaiDb.findByNip(nip).setInstansi(instansi);
 		PegawaiModel updated = pegawaiDb.findByNip(nip);
 		return updated;
 	}

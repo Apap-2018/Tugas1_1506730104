@@ -32,6 +32,26 @@ public class JabatanController {
 		return "jabatan";
 	}
 	
+	@RequestMapping(value = "jabatan/viewall", method = RequestMethod.GET)
+	public String viewAllJabatan(Model model){
+		List<JabatanModel> jabatan = jabatanService.getAllJabatan();
+		
+		model.addAttribute("jabatan", jabatan);
+		return "daftar-jabatan";
+	}
+	
+	@RequestMapping(value = "/jabatan/tambah", method = RequestMethod.GET)
+	public String tambahJabatan(Model model){
+		return "tambah-jabatan";
+	}
+	  
+	@RequestMapping(value="/jabatan/tambah", method = RequestMethod.POST)
+	private String tambahJabatanSubmit(@ModelAttribute JabatanModel jabatan, Model model) {
+		jabatanService.addJabatan(jabatan);
+		model.addAttribute("jabatan", jabatan);
+		return "tambah-jabatan";
+	}
+	
 	@RequestMapping(value = "jabatan/ubah", method = RequestMethod.GET)
 	public String ubahJabatan(@RequestParam("id") long id, Model model){
 		JabatanModel jabatan = jabatanService.getJabatanDetailById(id);
@@ -43,35 +63,13 @@ public class JabatanController {
 	public String ubahPegawaiSubmit(@RequestParam("id") long id, @RequestParam("nama") String nama, @RequestParam("deskripsi") String deskripsi, @RequestParam("gaji_pokok") Double gaji_pokok, Model model) {
 		JabatanModel terupdate = jabatanService.ubahJabatanDetailById(id, nama, deskripsi, gaji_pokok);
 		model.addAttribute("jabatan", terupdate);
-		model.addAttribute("action", "ubah");
-		return "jabatan-act";
+		return "ubah-jabatan";
 	}
 	
 	@RequestMapping(value = "jabatan/hapus", method = RequestMethod.POST)
 	public String hapusJabatan(@RequestParam("id") long id, Model model) {
 		JabatanModel terhapus = jabatanService.deleteJabatanById(id);
 		model.addAttribute("jabatan", terhapus);
-		model.addAttribute("action", "hapus");
-		return "jabatan-act";
-	}
-	
-	@RequestMapping(value = "jabatan/viewall", method = RequestMethod.GET)
-	public String viewAllJabatan(Model model){
-		List<JabatanModel> jabatan = jabatanService.getAllJabatan();
-		model.addAttribute("jabatan", jabatan);
-		return "daftar-jabatan";
-	}
-	
-	@RequestMapping(value = "jabatan/tambah", method = RequestMethod.GET)
-	public String tambahJabatan(Model model){
-		return "tambah-jabatan";
-	}
-	  
-	@RequestMapping(value="jabatan/tambah", method = RequestMethod.POST)
-	private String tambahJabatanSubmit(@ModelAttribute JabatanModel jabatan, Model model) {
-		jabatanService.addJabatan(jabatan);
-		model.addAttribute("jabatan", jabatan);
-		model.addAttribute("action", "tambahkan");
-		return "jabatan-act";
+		return "index";
 	}
 }

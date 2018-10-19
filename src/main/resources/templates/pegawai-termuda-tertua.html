@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Detail Pegawai</title>
+		<title>Pegawai Termuda Tertua</title>
 		<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     	
@@ -24,15 +24,15 @@
 					</div>
 					<div class="row">
 						<div class="col-md-4">Tempat Lahir</div>
-				    	<div th:text="${pegawaiMuda.tempat_lahir}" class="col-md-4"></div>
+				    	<div th:text="${pegawaiMuda.tempatLahir}" class="col-md-4"></div>
 					</div>
 					<div class="row">
 						<div class="col-md-4">Tanggal Lahir</div>
-				    	<div th:text="${pegawaiMuda.tanggal_lahir}" class="col-md-4"></div>
+				    	<div th:text="${pegawaiMuda.tanggalLahir}" class="col-md-4"></div>
 					</div>
 					<div class="row">
 						<div class="col-md-4">Tahun Masuk</div>
-				    	<div th:text="${pegawaiMuda.tahun_masuk}" class="col-md-4"></div>
+				    	<div th:text="${pegawaiMuda.tahunMasuk}" class="col-md-4"></div>
 					</div>
 					<div class="row">
 						<div class="col-md-4">Nama Instansi</div>
@@ -61,19 +61,19 @@
 					</div>
 					<div class="row">
 						<div class="col-md-4">Tempat Lahir</div>
-				    	<div th:text="${pegawaiTua.tempat_lahir}" class="col-md-4"></div>
+				    	<div th:text="${pegawaiTua.tempatLahir}" class="col-md-4"></div>
 					</div>
 					<div class="row">
 						<div class="col-md-4">Tanggal Lahir</div>
-				    	<div th:text="${pegawaiTua.tanggal_lahir}" class="col-md-4"></div>
+				    	<div th:text="${pegawaiTua.tanggalLahir}" class="col-md-4"></div>
 					</div>
 					<div class="row">
 						<div class="col-md-4">Tahun Masuk</div>
-				    	<div th:text="${pegawaiTua.tahun_masuk}" class="col-md-4"></div>
+				    	<div th:text="${pegawaiTua.tahunMasuk}" class="col-md-4"></div>
 					</div>
 					<div class="row">
 						<div class="col-md-4">Nama Instansi</div>
-				    	<div th:text="${instansiTua.nama}" class="col-md-4"></div>
+				    	<div th:text="${instansi.nama} + ' - ' + ${provinsi.nama}" class="col-md-4"></div>
 					</div>
 					<div class="row">
 						<div class="col-md-4">Jabatan</div>

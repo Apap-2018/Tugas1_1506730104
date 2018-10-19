@@ -11,73 +11,76 @@
  	<body>
  		<nav th:replace="fragments/fragment" :: navbar></nav>
 		<div class="container-fluid">
+			<br>
 			<h1>Tambah Pegawai</h1>
-			<form th:action="@{pegawai/tambah}" th:object="${pegawai}" method="POST">
+			<br>
+			<form th:action="@{/pegawai/tambah}" th:object="${pegawai}" method="POST">
 				<div class="row">
-					<div class="col-md-4">Nama</div>
+					<div class="col-md-4">Nama:</div>
 			    	<div class="col-md-4">
 			    		<input type="text" name="nama" class="form-control" />
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
-					<div class="col-md-4">Tempat Lahir</div>
+					<div class="col-md-4">Tempat Lahir:</div>
 			    	<div class="col-md-4">
-			    		<input type="text" name="tempat_lahir" class="form-control" />
+			    		<input type="text" name="tempatLahir" class="form-control" />
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
-					<div class="col-md-4">Tanggal Lahir</div>
+					<div class="col-md-4">Tanggal Lahir:</div>
 			    	<div class="col-md-4">
-			    		<input type="Date" name="tanggal_lahir" class="form-control" />
+			    		<input type="Date" name="tanggalLahir" class="form-control" />
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
-					<div class="col-md-4">Tahun Masuk</div>
+					<div class="col-md-4">Tahun Masuk:</div>
 			    	<div class="col-md-4">
-			    		<input type="text" name="tahun_masuk" class="form-control" />
+			    		<input type="text" name="tahunMasuk" class="form-control" />
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
-					<div class="col-md-4">Provinsi</div>
+					<div class="col-md-4">Provinsi:</div>
 			    	<div class="col-md-4">
 			    		<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Pilih Provinsi
-							</button>
-							<select th:each="provinsi : ${provinsi}" name="provinsi">
-								<option th:text="${provinsi.nama}" th:value="${provinsi.id}"></option>
+							<select class="form-control" name="id_provinsi">
+								<option>Pilih Provinsi</option>
+								<option th:each="provinsi : ${provinsi}" th:text="${provinsi.nama}" th:value="${provinsi.id}"></option>
 							</select>
 						</div>
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
-					<div class="col-md-4">Nama Instansi</div>
+					<div class="col-md-4">Instansi:</div>
 			    	<div class="col-md-4">
 			    		<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Pilih Instansi
-							</button>
-							<select th:each="instansi : ${instansi}" name="id_instansi">
-								<option th:text="${instansi.nama}" th:value="${instansi.id}"></option>
+							<select class="form-control" name="id_instansi">
+								<option>Pilih Instansi</option>
+								<option th:each="instansi : ${instansi}" th:text="${instansi.nama}" th:value="${instansi.id}"></option>
 							</select>
 						</div>
 			    	</div>
 				</div>
+				<p></p>
 				<div class="row">
-					<div class="col-md-4">Jabatan</div>
+					<div class="col-md-4">Jabatan:</div>
 			    	<div class="col-md-4">
 			    		<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Pilih Jabatan
-							</button>
-							<select th:each="jabatan : ${jabatan}" name="id_jabatan">
-								<option th:text="${jabatan.nama}" th:value="${jabatan.id}"></option>
+							<select class="form-control" name="id_jabatan">
+								<option>Pilih Jabatan</option>
+								<option th:each="jabatan : ${jabatan}" th:text="${jabatan.nama}" th:value="${jabatan.id}"></option>
 							</select>
 						</div>
-						<a class="nav-link" href="#">Tambah Jabatan Lain</a>
+						<a class="nav-link" href="#">Tambah Jabatan Lain+</a>
 			    	</div>
 				</div>
-				<button type="submit" class="btn btn-primary">Simpan</button>
+				<p></p>
+				<button type="submit" class="btn btn-success">Simpan</button>
 			</form>
 			
 		</div>

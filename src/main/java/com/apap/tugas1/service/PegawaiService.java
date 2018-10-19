@@ -10,7 +10,7 @@ import com.apap.tugas1.model.PegawaiModel;
 public interface PegawaiService {
 	PegawaiModel getPegawaiDetailByNip(String nip);
 	void addPegawai(PegawaiModel pegawai);
-	PegawaiModel ubahPegawai(String nip,String nama, String tempat_lahir, Date tanggal_lahir, String tahun_masuk, Long id_instansi);
+	PegawaiModel ubahPegawai(String nip,String nama, String tempat_lahir, Date tanggal_lahir, String tahun_masuk, InstansiModel instansi);
 	List<PegawaiModel> getAllPegawai();
 	String getPegawaiTahunMasukSama(String tahun_masuk);
 	PegawaiModel getPegawaiMudaByInstansi(Long id_instansi);

@@ -11,74 +11,65 @@
  	<body>
  		<nav th:replace="fragments/fragment" :: navbar></nav>
 		<div class="container-fluid">
+			<br>
 			<h1>Ubah Pegawai</h1>
-			<form th:action="@{/pegawai/ubah-submit}" th:object="${pegawai}" method="POST">
+			<br>
+			<form th:action="@{/pegawai/ubah}" th:object="${pegawai}" method="POST">
+				<input type="hidden" name="nip" th:value="${pegawai.nip}"/>
 				<div class="row">
-					<div class="col-md-4">NIP</div>
+					<div class="col-md-4">Nama:</div>
 			    	<div class="col-md-4">
-			    		<input th:value="${pegawai.nip}" type="text" name="nip" class="form-control" />
+			    		<input th:text="${pegawai.nama}" type="text" name="nama" class="form-control" />
 			    	</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4">Nama</div>
+					<div class="col-md-4">Tempat Lahir:</div>
 			    	<div class="col-md-4">
-			    		<input th:value="${pegawai.nama}" type="text" name="nama" class="form-control" />
+			    		<input th:text="${pegawai.tempatLahir}" type="text" name="tempatLahir" class="form-control" />
 			    	</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4">Tempat Lahir</div>
+					<div class="col-md-4">Tanggal Lahir:</div>
 			    	<div class="col-md-4">
-			    		<input th:value="${pegawai.tempat_lahir}" type="text" name="tempat_lahir" class="form-control" />
+			    		<input th:text="${pegawai.tanggalLahir}" type="Date" name="tanggalLahir" class="form-control" />
 			    	</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4">Tanggal Lahir</div>
+					<div class="col-md-4">Tahun Masuk:</div>
 			    	<div class="col-md-4">
-			    		<input th:value="${pegawai.tanggal_lahir}" type="Date" name="tanggal_lahir" class="form-control" />
+			    		<input th:text="${pegawai.tahunMasuk}" type="text" name="tahunMasuk" class="form-control" />
 			    	</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4">Tahun Masuk</div>
-			    	<div class="col-md-4">
-			    		<input th:value="${pegawai.tahun_masuk}" type="text" name="tahun_masuk" class="form-control" />
-			    	</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4">Provinsi</div>
+					<div class="col-md-4">Provinsi:</div>
 			    	<div class="col-md-4">
 			    		<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Pilih Provinsi
-							</button>
-							<div th:each="provinsi : ${provinsi}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a th:text="${provinsi.nama}" name="provinsi" th:field="${provinsi.id}" class="dropdown-item" href="#"></a>
-							</div>
+							<select class="form-control" name="id_provinsi">
+								<option>Pilih Provinsi</option>
+								<option th:each="provinsi : ${provinsi}" th:text="${provinsi.nama}" th:value="${provinsi.id}"></option>
+							</select>
 						</div>
 			    	</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4">Nama Instansi</div>
+					<div class="col-md-4">Nama Instansi:</div>
 			    	<div class="col-md-4">
 			    		<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Pilih Instansi
-							</button>
-							<div th:each="instansi : ${instansi}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a th:text="${instansi.nama}" name="instansi" th:field="${instansi.id}" class="dropdown-item" href="#">Action</a>
-							</div>
+							<select class="form-control" name="id_instansi">
+								<option>Pilih Instansi</option>
+								<option th:each="instansi : ${instansi}" th:text="${instansi.nama}" th:value="${instansi.id}"></option>
+							</select>
 						</div>
 			    	</div>
 				</div>
 				<div class="row">
-					<div class="col-md-4">Jabatan</div>
+					<div class="col-md-4">Jabatan:</div>
 			    	<div class="col-md-4">
 			    		<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Pilih Jabatan
-							</button>
-							<div th:each="jabatan : ${jabatan}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a th:text="${jabatan.nama}" name="jabatan" th:field="${jabatan.id}" class="dropdown-item" href="#">Action</a>
-							</div>
+							<select class="form-control" name="id_jabatan">
+								<option>Pilih Jabatan</option>
+								<option th:each="jabatan : ${jabatan}" th:text="${jabatan.nama}" th:value="${jabatan.id}"></option>
+							</select>
 						</div>
 						<a class="nav-link" href="#">Tambah Jabatan Lain</a>
 			    	</div>

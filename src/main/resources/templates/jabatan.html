@@ -12,30 +12,30 @@
  		<nav th:replace="fragments/fragment" :: navbar></nav>
  		
 		<div class="container-fluid">
+			<br>
 			<h1 th:text="'Detail Jabatan ' + ${jabatan.nama}"></h1>
 			<br>
 			<div class="row">
-				<div class="col-md-4">Nama</div>
+				<div class="col-md-2">Nama:</div>
 		    	<div th:text="${jabatan.nama}" class="col-md-4"></div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">Deskripsi</div>
+				<div class="col-md-2">Deskripsi:</div>
 		    	<div th:text="${jabatan.deskripsi}" class="col-md-4"></div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">Gaji Pokok</div>
-		    	<div th:text="${jabatan.gaji_pokok}" class="col-md-4"></div>
+				<div class="col-md-2">Gaji Pokok:</div>
+		    	<div th:text="${jabatan.gajiPokok}" class="col-md-4"></div>
 			</div>
 			<br>
 			<div class="row">
 				<div class="col-md-2">
 					<form th:action="@{/jabatan/ubah}" method="GET">
 						<input type="hidden" name="id" th:value="${jabatan.id}"/>
-						<button class="btn btn-warning">Ubah</button>
+						<button class="btn btn-warning text-white">Ubah</button>
 					</form>
-				</div>
-				<div class="col-md-2">
-					<form th:action="@{/jabatan/hapus}" method="GET">
+					<br>
+					<form th:action="@{/jabatan/hapus}" method="POST">
 						<input type="hidden" name="id" th:value="${jabatan.id}"/>
 						<button class="btn btn-danger">Hapus</button>
 					</form>

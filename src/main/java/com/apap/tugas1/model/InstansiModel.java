@@ -34,7 +34,7 @@ public class InstansiModel implements Serializable {
 	private ProvinsiModel provinsi;
 	
 	@OneToMany(mappedBy="instansi", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-	private List<PegawaiModel> daftar_pegawai;
+	private List<PegawaiModel> daftarPegawai;
 
 	public void setId(long id) {
 		this.id = id;
@@ -68,11 +68,11 @@ public class InstansiModel implements Serializable {
 		return provinsi;
 	}
 	
-	public void setDaftarPegawai(List<PegawaiModel> daftar_pegawai) {
-		this.daftar_pegawai = daftar_pegawai;
+	public void setDaftarPegawai(List<PegawaiModel> daftarPegawai) {
+		this.daftarPegawai = daftarPegawai;
 	}
 
 	public List<PegawaiModel> getDaftarPegawai() {
-		return daftar_pegawai;
+		return daftarPegawai;
 	}
 }

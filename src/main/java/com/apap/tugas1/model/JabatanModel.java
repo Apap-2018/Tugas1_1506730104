@@ -29,10 +29,10 @@ public class JabatanModel implements Serializable {
 
 	@NotNull
 	@Column(name = "gaji_pokok", nullable = false)
-	private Double gaji_pokok;
+	private Double gajiPokok;
 	
 	@OneToMany(mappedBy="jabatan", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-	private List<JabatanPegawaiModel> daftar_pegawai;
+	private List<JabatanPegawaiModel> daftarPegawai;
 
 	public void setId(long id) {
 		this.id = id;
@@ -58,20 +58,20 @@ public class JabatanModel implements Serializable {
 		return deskripsi;
 	}
 
-	public void setGajiPokok(Double gaji_pokok) {
-		this.gaji_pokok = gaji_pokok;
+	public void setGajiPokok(Double gajiPokok) {
+		this.gajiPokok = gajiPokok;
 	}
 
 	public Double getGajiPokok() {
-		return gaji_pokok;
+		return gajiPokok;
 	}
 	
-	public void setDaftarPegawai(List<JabatanPegawaiModel> daftar_pegawai) {
-		this.daftar_pegawai = daftar_pegawai;
+	public void setDaftarPegawai(List<JabatanPegawaiModel> daftarPegawai) {
+		this.daftarPegawai = daftarPegawai;
 	}
 
 	public List<JabatanPegawaiModel> getDaftarPegawai() {
-		return daftar_pegawai;
+		return daftarPegawai;
 	}
 	
 }

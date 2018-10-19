@@ -17,40 +17,28 @@
 				<div class="row">
 					<div class="col-md-4">Provinsi</div>
 			    	<div class="col-md-4">
-			    		<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Pilih Provinsi
-							</button>
-							<div th:each="provinsi : ${provinsi}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a th:text="${provinsi.nama}" name="provinsi" th:field="${provinsi.id}" class="dropdown-item" href="#"></a>
-							</div>
-						</div>
+			    		<select name="id_provinsi">
+							<option>Pilih Provinsi</option>
+							<option th:each="provinsi : ${provinsi}" th:text="${provinsi.nama}" th:value="${provinsi.id}"></option>
+						</select>
 			    	</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">Nama Instansi</div>
 			    	<div class="col-md-4">
-			    		<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Pilih Instansi
-							</button>
-							<div th:each="instansi : ${instansi}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a th:text="${instansi.nama}" name="instansi" th:field="${instansi.id}" class="dropdown-item" href="#">Action</a>
-							</div>
-						</div>
+			    		<select name="id_instansi">
+							<option>Pilih Instansi</option>
+							<option th:each="instansi : ${instansi}" th:text="${instansi.nama}" th:value="${instansi.id}"></option>
+						</select>
 			    	</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">Jabatan</div>
 			    	<div class="col-md-4">
-			    		<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Pilih Jabatan
-							</button>
-							<div th:each="jabatan : ${jabatan}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a th:text="${jabatan.nama}" name="jabatan" th:field="${jabatan.id}" class="dropdown-item" href="#">Action</a>
-							</div>
-						</div>
+			    		<select name="id">
+							<option>Pilih Jabatan</option>
+							<option th:each="jabatan : ${jabatan}" th:text="${jabatan.nama}" th:value="${jabatan.id}"></option>
+						</select>
 			    	</div>
 				</div>
 				<button type="submit" class="btn btn-primary">Tambah</button>
@@ -93,9 +81,9 @@
 			    	<tr>
 				      	<td th:text="${pegawai.nip}">Mark</td>
 				      	<td th:text="${pegawai.nama}">Mark</td>
-				      	<td th:text="${pegawai.tempat_lahir}">Otto</td>
-				      	<td th:text="${pegawai.tanggal_lahir}">@mdo</td>
-				      	<td th:text="${pegawai.tahun_masuk}">Mark</td>
+				      	<td th:text="${pegawai.tempatLahir}">Otto</td>
+				      	<td th:text="${pegawai.tanggalLahir}">@mdo</td>
+				      	<td th:text="${pegawai.tahunMasuk}">Mark</td>
 				      	<td>Instansi</td>
 				      	<td>Jabatan</td>
 				    </tr>

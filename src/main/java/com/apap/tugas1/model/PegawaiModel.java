@@ -30,16 +30,16 @@ public class PegawaiModel implements Serializable {
 	@NotNull
 	@Size(max = 255)
 	@Column(name = "tempat_lahir", nullable = false)
-	private String tempat_lahir;
+	private String tempatLahir;
 	
 	@NotNull
 	@Column(name = "tanggal_lahir", nullable = false)
-	private Date tanggal_lahir;
+	private Date tanggalLahir;
 	
 	@NotNull
 	@Size(max = 255)
 	@Column(name = "tahun_masuk", nullable = false)
-	private String tahun_masuk;
+	private String tahunMasuk;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "instansi_id", referencedColumnName = "id", nullable = false)
@@ -48,7 +48,7 @@ public class PegawaiModel implements Serializable {
 	private InstansiModel instansi;
 
 	@OneToMany(mappedBy="pegawai", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-	private List<JabatanPegawaiModel> daftar_jabatan;
+	private List<JabatanPegawaiModel> daftarJabatan;
 
 	public void setId(long id) {
 		this.id = id;
@@ -74,28 +74,28 @@ public class PegawaiModel implements Serializable {
 		return nama;
 	}
 
-	public void setTempatLahir(String tempat_lahir) {
-		this.tempat_lahir = tempat_lahir;
+	public void setTempatLahir(String tempatLahir) {
+		this.tempatLahir = tempatLahir;
 	}
 
 	public String getTempatLahir() {
-		return tempat_lahir;
+		return tempatLahir;
 	}
 
-	public void setTanggalLahir(Date tanggal_lahir) {
-		this.tanggal_lahir = tanggal_lahir;
+	public void setTanggalLahir(Date tanggalLahir) {
+		this.tanggalLahir = tanggalLahir;
 	}
 
 	public Date getTanggalLahir() {
-		return tanggal_lahir;
+		return tanggalLahir;
 	}
 
-	public void setTahunMasuk(String tahun_masuk) {
-		this.tahun_masuk = tahun_masuk;
+	public void setTahunMasuk(String tahunMasuk) {
+		this.tahunMasuk = tahunMasuk;
 	}
 
 	public String getTahunMasuk() {
-		return tahun_masuk;
+		return tahunMasuk;
 	}
 
 	public void setInstansi(InstansiModel instansi) {
@@ -106,12 +106,12 @@ public class PegawaiModel implements Serializable {
 		return instansi;
 	}
 	
-	public void setDaftarJabatan(List<JabatanPegawaiModel> daftar_jabatan) {
-		this.daftar_jabatan = daftar_jabatan;
+	public void setDaftarJabatan(List<JabatanPegawaiModel> daftarJabatan) {
+		this.daftarJabatan = daftarJabatan;
 	}
 
 	public List<JabatanPegawaiModel> getDaftarJabatan() {
-		return daftar_jabatan;
+		return daftarJabatan;
 	}
 	
 }
