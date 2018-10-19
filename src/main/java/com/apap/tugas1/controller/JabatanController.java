@@ -35,7 +35,6 @@ public class JabatanController {
 	@RequestMapping(value = "jabatan/viewall", method = RequestMethod.GET)
 	public String viewAllJabatan(Model model){
 		List<JabatanModel> jabatan = jabatanService.getAllJabatan();
-		
 		model.addAttribute("jabatan", jabatan);
 		return "daftar-jabatan";
 	}

@@ -10,6 +10,7 @@
     	
     	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
  		<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+ 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
  	<body>
  		<nav th:replace="fragments/fragment" :: navbar></nav>
@@ -19,7 +20,7 @@
 			<br>
 			<form>
 				<div class="row">
-					<div class="col-md-4">Provinsi</div>
+					<div class="col-md-2">Provinsi</div>
 			    	<div class="col-md-4">
 			    		<select class="form-control" name="id_provinsi">
 							<option>Pilih Provinsi</option>
@@ -29,7 +30,7 @@
 				</div>
 				<p></p>
 				<div class="row">
-					<div class="col-md-4">Nama Instansi</div>
+					<div class="col-md-2">Nama Instansi</div>
 			    	<div class="col-md-4">
 			    		<select class="form-control" name="id_instansi">
 							<option>Pilih Instansi</option>
@@ -39,7 +40,7 @@
 				</div>
 				<p></p>
 				<div class="row">
-					<div class="col-md-4">Jabatan</div>
+					<div class="col-md-2">Jabatan</div>
 			    	<div class="col-md-4">
 			    		<select class="form-control" name="id">
 							<option>Pilih Jabatan</option>
@@ -48,7 +49,12 @@
 			    	</div>
 				</div>
 				<p></p>
-				<button type="submit" class="btn btn-primary">Tambah</button>
+				<div class="row">
+					<div class="col-md-2 offset-md-5">
+						<button type="submit" class="btn btn-primary">Cari</button>
+					</div>
+				</div>
+				
 			</form>
 			
 			<hr>
@@ -93,12 +99,12 @@
 			  <tbody>
 			    <div th:each="pegawai : ${pegawai}">
 			    	<tr>
-				      	<td th:text="${pegawai.nip}">Mark</td>
-				      	<td th:text="${pegawai.nama}">Mark</td>
-				      	<td th:text="${pegawai.tempatLahir}">Otto</td>
-				      	<td th:text="${pegawai.tanggalLahir}">@mdo</td>
-				      	<td th:text="${pegawai.tahunMasuk}">Mark</td>
-				      	<td th:text="${pegawai.instansi.nama}">Instansi</td>
+				      	<td th:text="${pegawai.nip}"></td>
+				      	<td th:text="${pegawai.nama}"></td>
+				      	<td th:text="${pegawai.tempatLahir}"></td>
+				      	<td th:text="${pegawai.tanggalLahir}"></td>
+				      	<td th:text="${pegawai.tahunMasuk}"></td>
+				      	<td th:text="${pegawai.instansi.nama}"></td>
 				      	<td>
 				      		<ul th:each="jabatan : ${pegawai.daftarJabatan}">
 				      			<li th:text="${jabatan.jabatan.nama}"></li>
@@ -124,8 +130,8 @@
 		</div>
 		<script type="text/javascript">
 			$(document).ready( function () {
-				
 			    $('#table_id').DataTable();
+			    
 			} );
 		</script>
  	</body>

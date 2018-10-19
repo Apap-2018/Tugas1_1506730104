@@ -11,41 +11,51 @@
  	<body>
  		<nav th:replace="fragments/fragment" :: navbar></nav>
 		<div class="container-fluid">
+			<br>
 			<h1>Daftar Jabatan</h1>
-			
+			<br>
 			<div class="row">
 				<div class="col-md-4">
-					Show
-					<div class="dropdown">
-						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item" href="#">10</a>
-							<a class="dropdown-item" href="#">20</a>
-							<a class="dropdown-item" href="#">30</a>
+					<div class="row">
+						<div class="col-md-2">Show</div>
+						<div class="col-md-2">
+							<select class="form-control">
+								<option>10</option>
+								<option>20</option>
+								<option>30</option>
+							</select>
 						</div>
+						<div class="col-md-2">entries</div>					
 					</div>
-					entries
 				</div>
 				<div class="col-md-4 offset-md-4">
-					Search
-					<input type="text" name="" class="form-control" />
+					<div class="row">
+						<div class="col-md-2">
+							Search:	
+						</div>
+						<div class="col-md-10">
+							<input type="text" name="" class="form-control" />
+						</div>
+					</div>
 				</div>
 			</div>
+			<hr>
 			<table class="table table-hover">
 			  <thead>
 			    <tr>
 			      <th scope="col">Nama</th>
 			      <th scope="col">Deskripsi</th>
 			      <th scope="col">Gaji Pokok</th>
+			      <th scope="col">Jumlah Pegawai</th>
 			    </tr>
 			  </thead>
 			  <tbody>
-			  	<div th:each="jabatan: ${jabatan}">
+			  	<div th:each="jabatan : ${jabatan}">
 			  		<tr>
 				    	<td th:text="${jabatan.nama}"></td>
 				      	<td th:text="${jabatan.deskripsi}"></td>
 				      	<td th:text="${jabatan.gajiPokok}"></td>
+				      	<td></td>
 				    </tr>
 			  	</div>
 			  </tbody>

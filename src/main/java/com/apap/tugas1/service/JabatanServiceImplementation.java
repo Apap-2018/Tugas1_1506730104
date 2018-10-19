@@ -67,7 +67,5 @@ public class JabatanServiceImplementation implements JabatanService {
 		}
 		gajiPegawai += presentase_tunjangan * gajiPegawai;
 		return gajiPegawai;
-	}
-	
-	
+	}	
 }

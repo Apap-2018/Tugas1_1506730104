@@ -71,12 +71,14 @@
 				<div class="row">
 					<div class="col-md-4">Jabatan:</div>
 			    	<div class="col-md-4">
+						<div id="form-jabatan">
 							<select class="form-control" name="id_jabatan">
 								<option>Pilih Jabatan</option>
 								<option th:each="jabatan : ${jabatan}" th:text="${jabatan.nama}" th:value="${jabatan.id}"></option>
 							</select>
 							<p></p>
-							<input type="button" value="Tambah Jabatan Lain+" class="btn btn-primary" id="add" />
+						</div>	
+						<input type="button" value="Tambah Jabatan Lain+" class="btn btn-primary" id="add" />
 			    	</div>
 				</div>
 				<p></p>
